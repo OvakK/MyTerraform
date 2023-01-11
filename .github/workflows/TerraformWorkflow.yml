@@ -34,4 +34,4 @@ jobs:
       run: sleep 100
       
     - name: Destroy
-      run: terraform destroy
+      run: terraform destroy -auto-approve
