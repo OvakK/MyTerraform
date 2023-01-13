@@ -1,25 +1,23 @@
 variable "region" {
-    description = "Enter region"
-    default = "us-east-1"
-    type = string
-  
+  description = "Enter region"
+  default     = "us-east-1"
+  type        = string
+
 }
 
 variable "instance_type" {
-    description = "Enter instance type"
-    default = "t3.micro"
-    type = string
-  
+  description = "Enter instance type"
+  default     = "t3.micro"
+  type        = string
+
 }
 
-variable "ports" {
-    description = "Enter list of ports to open"
-    type = list
-    default = ["80", "443"]
-  
+variable "ami" {
+  default = "ami-0b5eea76982371e91"
 }
 
-variable "monitor" {
-    default = "false"
-    type = bool
+variable "instance_name" {
+  type        = string
+  description = "Enter name of instance"
+
 }
