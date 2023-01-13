@@ -1,10 +1,3 @@
-variable "region" {
-  description = "Enter region"
-  default     = "us-east-1"
-  type        = string
-
-}
-
 variable "instance_type" {
   description = "Enter instance type"
   default     = "t3.micro"
@@ -17,7 +10,12 @@ variable "ami" {
 }
 
 variable "instance_name" {
+  default     = "MyServer"
   type        = string
   description = "Enter name of instance"
+}
 
+variable "location" {
+    type = string
+    default = "Oregon"
 }
