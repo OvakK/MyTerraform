@@ -10,7 +10,7 @@ resource "aws_instance" "my_server" {
     Name    = var.instance_name
     Owner   = "Ovak Kurginyan"
     Project = "KOK"
-    Location = location
+    Location = var.location
   }
 
 }
