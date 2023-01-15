@@ -1,2 +1,45 @@
 name: TerraformLocals
-on: 
+on:
+  workflow_dispatch:
+    inputs:
+      instance_owner:
+        description: 'Enter instance owner'
+        type: environment
+        required: true
+jobs:
+  teraform:
+    name: "Terraform"
+    runs-on: ubuntu-latest
+    env:
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      AWS_DEFAULT_REGION: us-east-1
+      TF_VAR_OWNER : ${{ env.instance_owner }}
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+      
+    - name: Setup Terraform
+      uses: hashicorp/setup-terraform@v1
+      with:
+          terraform_version: 1.0.1
+          terraform_wrapper: false
+          
+    - name: Terraform Init
+      id: init
+      run: terraform init
+
+    - name: Terraform Plan
+      id: plan
+      run: terraform plan
+
+    - name: Terraform Apply
+      run: terraform apply -auto-approve
+      
+    - name: Wait
+      run: sleep 60
+      
+    - name: Destroy
+      run: terraform destroy -auto-approve
+  
