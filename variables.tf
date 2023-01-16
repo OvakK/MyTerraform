@@ -16,6 +16,17 @@ variable "instance_name" {
 }
 
 variable "location" {
-    type = string
-    default = "Oregon"
+  type    = string
+  default = "Gyumri"
+}
+
+
+variable "project" {
+  default = "Terraformation"
+
+}
+
+variable "owner" {
+  description = "Enter project name"
+  type        = string
 }
