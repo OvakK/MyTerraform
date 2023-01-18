@@ -4,7 +4,6 @@ on:
     inputs:
       instance_owner:
         description: 'Enter instance owner'
-        type: environment
         required: true
 jobs:
   teraform:
