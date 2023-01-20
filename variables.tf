@@ -1,5 +1,4 @@
 variable "instance_type" {
-  description = "Enter instance type"
   default     = "t3.micro"
   type        = string
 
@@ -23,10 +22,9 @@ variable "location" {
 
 variable "project" {
   default = "Terraformation"
-
 }
 
 variable "owner" {
-  description = "Enter project name"
-  type        = string
+  default = "Ovak"
+
 }
