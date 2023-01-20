@@ -2,6 +2,12 @@ provider "aws" {
   region = "us-east-1"
 }
 
+terraform {
+  backend = "mytfstatesbucket"
+  key     = "dev/servers/terraform.tfstate"
+  region  = "us-east-1"
+}
+
 
 resource "aws_vpc" "my_vpc" {
 
@@ -41,7 +47,7 @@ resource "aws_instance" "my_server" {
 
   tags = {
     Name = var.instance_name
-    
+
   }
 }
 
