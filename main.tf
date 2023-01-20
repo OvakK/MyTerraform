@@ -3,10 +3,14 @@ provider "aws" {
 }
 
 terraform {
-  backend = "mytfstatesbucket"
-  key     = "dev/servers/terraform.tfstate"
-  region  = "us-east-1"
+  backend "s3" {
+    bucket = "mytfstatesbucket"
+    key     = "dev/network/terraform.tfstate"
+    region  = "us-east-1"
+  }
+
 }
+
 
 
 
