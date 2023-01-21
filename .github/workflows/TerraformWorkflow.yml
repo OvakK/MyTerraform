@@ -37,7 +37,7 @@ jobs:
       run: terraform apply -auto-approve
       
     - name: Wait
-      run: sleep 30
+      run: sleep 120
       
     - name: Destroy
       run: terraform destroy -auto-approve
