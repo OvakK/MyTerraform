@@ -16,7 +16,7 @@ terraform {
 
 resource "aws_vpc" "my_vpc" {
 
-  cidr_block       = "172.16.0.0/16"
+  cidr_block       = "172.0.0.0/16"
   instance_tenancy = "default"
 
   tags = {
@@ -34,13 +34,6 @@ resource "aws_subnet" "my_subnet" {
   }
 }
 
-resource "aws_internet_gateway" "gw" {
-  vpc_id = aws_vpc.my_vpc.id
-
-  tags = {
-    Name = "main"
-  }
-}
 
 
 resource "aws_instance" "my_server" {
@@ -75,7 +68,6 @@ resource "aws_security_group" "my_security" {
     to_port          = 0
     protocol         = "-1"
     cidr_blocks      = ["0.0.0.0/0"]
-    ipv6_cidr_blocks = ["::/0"]
   }
 
   tags = {
