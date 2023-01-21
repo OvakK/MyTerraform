@@ -41,7 +41,6 @@ resource "aws_instance" "my_server" {
   instance_type          = var.instance_type
   vpc_security_group_ids = [aws_security_group.my_security.id]
   subnet_id              = aws_subnet.my_subnet.id
-  depends_on             = [aws_internet_gateway.gw]
 
   tags = {
     Name = var.instance_name
