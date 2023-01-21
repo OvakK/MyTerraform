@@ -33,7 +33,7 @@ jobs:
       id: plan
       run: terraform plan
 
-    - name: Terraform Apply
+    - name: Terraform Apply -var 'instance_name= ${{ inputs.instance_name }}'
       run: terraform apply -auto-approve
       
     - name: Wait
