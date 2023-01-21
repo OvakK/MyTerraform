@@ -9,7 +9,6 @@ variable "ami" {
 }
 
 variable "instance_name" {
-  default     = "MyServer"
   type        = string
   description = "Enter name of instance"
 }
