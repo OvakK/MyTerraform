@@ -1,5 +1,6 @@
 name: Terraform
-on: workflow_dispatch
+on: 
+  workflow_dispatch:
     inputs:
       instance_name:
         description: 'Enter instance name'
